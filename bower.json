@@ -1,7 +1,8 @@
 {
   "name": "angular-permission",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
+    "JWStott <jwstott@gmail.com>",
     "Rafael Vidaurre <narzerus@gmail.com>"
   ],
   "description": "Route permission and access control as simple as it can get",
