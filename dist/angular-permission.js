@@ -1,7 +1,7 @@
 /**
  * angular-permission
  * Route permission and access control as simple as it can get
- * @version v0.1.1 - 2014-09-14
+ * @version v0.1.2 - 2014-09-14
  * @link http://www.rafaelvidaurre.com
  * @author JWStott <jwstott@gmail.com>, Rafael Vidaurre <narzerus@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -25,8 +25,9 @@
               // really nothing to do - let the navigation continue
               $rootScope.$broadcast('$stateChangeSuccess', toState, toParams, fromState, fromParams);
             }
+
             function rejected() {
-                var redirectTo = permissions.redirectTo;
+                var redirectTo = toState.data.permissions.redirectTo;
                 event.preventDefault();
                 if (redirectTo) {
                     //console.log('redirectTo: ' + redirectTo);

@@ -16,9 +16,9 @@
               // really nothing to do - let the navigation continue
               $rootScope.$broadcast('$stateChangeSuccess', toState, toParams, fromState, fromParams);
             }
-            
+
             function rejected() {
-                var redirectTo = permissions.redirectTo;
+                var redirectTo = toState.data.permissions.redirectTo;
                 event.preventDefault();
                 if (redirectTo) {
                     //console.log('redirectTo: ' + redirectTo);
