@@ -81,7 +81,7 @@ Defining roles
 So, how do yo tell Permission what does 'anonymous', 'admin' or 'foo' mean and how to know if the current user belongs
 to those definitions?
 
-Well, Permission allows you to define different 'roles' along with the logic that determines if the current 
+Well, Permission allows you to define different 'roles' along with the logic that determines if the current
 session belongs to them.
 
 ```javascript
@@ -92,7 +92,7 @@ session belongs to them.
   // anonymous: When there is not user currenly logged in
   // normal: A user with isAdmin = false
   // admin: A user with isAdmin = true
-  
+
   angular.module('fooModule', ['permission', 'user'])
     .run(function (Permission, User), {
       // Define anonymous role
@@ -109,7 +109,7 @@ session belongs to them.
 Sometimes you will need to call some a back-end api or some other asyncronous task to define the role
 For that you can use promises
 
-```javascript 
+```javascript
   angular.module('barModule', ['permission', 'user'])
     .run(function (Permission, User, $q) {
       Permission
@@ -117,14 +117,14 @@ For that you can use promises
         .defineRole('user', function () {
           // This time we will return a promise
           // If the promise *resolves* then the user has the role, if it *rejects* (you guessed it)
-          
+
           // Let's assume this returns a promise that resolves or rejects if session is active
           return User.checkSession();
         })
         // A different example for admin
         .defineRole('admin', function () {
           var deferred = $q.defer();
-          
+
           User.getAccessLevel().then(function (data) {
             if (data.accessLevel === 'admin') {
               deferred.resolve();
@@ -135,7 +135,7 @@ For that you can use promises
             // Error with request
             deferred.reject();
           });
-          
+
           return deferred.promise;
         });
     });
@@ -152,7 +152,7 @@ Help fill this list with your feature requests
 
 Contribute
 ==========
-This project is still in diapers and I would love your feedback / help in making this a great module 
+This project is still in diapers and I would love your feedback / help in making this a great module
 for angular developers to use
 
 
@@ -161,5 +161,3 @@ Author
 - Rafael Vidaurre
 - @narzerus
 - I'm a full-stack developer currenly working as CTO and Co-Founder at [Finciero](http://www.finciero.com)
-
-

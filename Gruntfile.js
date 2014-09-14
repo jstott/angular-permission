@@ -39,6 +39,14 @@ module.exports = function(grunt) {
         }]
       }
     },
+    bumpup: {
+      options: {
+          updateProps: {
+              pkg: 'bower.json'
+          }
+      },
+      files: ['bower.json']
+    },
     watch: {
       bower: {
         files: ['bower.json']
@@ -77,13 +85,9 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', [
-    'karma',
-    'clean:dist',
-    'concat'
-  ]);
-  grunt.registerTask('test', [
-    'karma'
-  ]);
+  grunt.registerTask('patch', ['bumpup:patch','build']);
+  grunt.registerTask('minor', ['bumpup:minor','build']);
+  grunt.registerTask('build', ['clean:dist','concat']);
+  grunt.registerTask('test', ['karma']);
 
 };
