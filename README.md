@@ -17,9 +17,16 @@ Please remember this project is very new, I wouldn't recommend yet using this in
 
 Install via bower
 -----------------
+This repos' forked copy
+```
+bower install git@github.com:jstott/angular-permission.git#^0.1.x --save
+```
+
+Original Source
 ```
 bower install angular-permission --save
 ```
+
 
 Include to your dependencies
 ----------------------------

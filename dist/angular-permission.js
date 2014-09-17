@@ -1,7 +1,7 @@
 /**
  * angular-permission
  * Route permission and access control as simple as it can get
- * @version v0.1.2 - 2014-09-14
+ * @version v0.1.3 - 2014-09-17
  * @link http://www.rafaelvidaurre.com
  * @author JWStott <jwstott@gmail.com>, Rafael Vidaurre <narzerus@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -67,7 +67,7 @@
               return this;
           };
 
-          this.$get = function ($q) {
+          this.$get = ['$q', function ($q) {
               var Permission = {
                   _promiseify: function (value) {
                       /**
@@ -184,7 +184,7 @@
               };
 
               return Permission;
-          };
+          }];
       });
 
 }());
